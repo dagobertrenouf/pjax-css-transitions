@@ -1,0 +1,8 @@
+{
+  "name": "pjax-css-transitions",
+  "version": "0.0.1",
+  "dependencies": {
+    "jquery-pjax": "latest",
+    "components-bootstrap": "~3.1.1"
+  }
+}
