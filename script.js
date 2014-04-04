@@ -1,5 +1,12 @@
 $(document).ready( function(){
 
-	console.log('ok');
-	
+
 });
+
+$(document).pjax('nav a', 'article.container');
+
+$(document).on('pjax:start', function(event) {
+  
+  console.log('pjax!');
+
+})
