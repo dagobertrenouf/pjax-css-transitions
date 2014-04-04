@@ -23,16 +23,18 @@ $(document).on('pjax:send', function(event) {
 
 	setTimeout(function(){ // add transition class that makes clone disappear on top of new content
 		$('.' + cloneClass).addClass(transitionClass);
-	}, 1); // adding 1ms delay to ensure proper firing of css transition
+	}, 50); // adding 1ms delay to ensure proper firing of css transition
+
+	// once transition is complete, remove the clone element
+	$('.' + cloneClass).bind('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd', function(){
+
+		$('.' + cloneClass).remove();
+
+	});
 
 });
 
-// once transition is complete, remove the clone element
-$('.' + cloneClass).bind('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd', function(){
 
-	$('.' + cloneClass).remove();
-
-});
 
 
 // $(document).on('pjax:success', function(event) {
