@@ -1,56 +1,83 @@
-$(document).ready( function(){
+var containerClass = '#pjax-container';
+var container = $(containerClass);
+var cloneClass = 'clone';
+var transitionClass = 'fade';
 
+$(document).pjax('#pjax-nav a', container, {
+
+	fragment: containerClass
 
 });
-
-$(document).pjax('#pjax-nav a', '#pjax-container', {
-	fragment: "#pjax-container"
-});
-
-$(document).on('pjax:click', function(event) {
-  
-  console.log('pjax click!');
-
-})
 
 $(document).on('pjax:start', function(event) {
   
-  console.log('pjax starts!');
+	console.log('pjax starts!');
 
-});
-
-$(document).on('pjax:end', function(event) {
-  
-  console.log('pjax ends!');
+	container.clone().insertAfter(container).addClass(cloneClass); // duplicates content and put it right above container (through position absolute and z-index)
 
 });
 
 $(document).on('pjax:send', function(event) {
 
-	console.log('request send');
+	console.log('pjax sends request!');
+
+	setTimeout(function(){ // add transition class that makes clone disappear on top of new content
+		$('.' + cloneClass).addClass(transitionClass);
+	}, 1); // adding 1ms delay to ensure proper firing of css transition
 
 });
 
-$(document).on('pjax:complete', function(event) {
+// once transition is complete, remove the clone element
+$('.' + cloneClass).bind('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd', function(){
 
-	console.log('request complete');
-
-});
-
-$(document).on('pjax:success', function(event) {
-
-	console.log('request succeeds');
+	$('.' + cloneClass).remove();
 
 });
 
-$(document).on('pjax:error', function(event) {
+
+// $(document).on('pjax:success', function(event) {
+
+// 	console.log('request succeeds');
+
+// });
+
+// $(document).on('pjax:end', function(event) {
   
-  console.log('pjax error');
+// 	console.log('pjax ends!');
 
-});
+// 	setTimeout(function(){
+// 		$('.' + cloneClass).removeClass(cloneClass);
+// 	}, 1000);
 
+// });
 
-$(document).on('pjax:timeout', function(event) {
-  // Prevent default timeout redirection behavior
-  event.preventDefault();
-})
+// $(document).on('pjax:click', function(event) {
+  
+//   console.log('pjax click!');
+
+// })
+
+// $(document).on('pjax:send', function(event) {
+
+// 	console.log('request send');
+
+// });
+
+// $(document).on('pjax:complete', function(event) {
+
+// 	console.log('request complete');
+
+// });
+
+// $(document).on('pjax:error', function(event) {
+  
+//   console.log('pjax error');
+
+// });
+
+// $(document).on('pjax:timeout', function(event) {
+
+//   // Prevent default timeout redirection behavior
+//   //event.preventDefault();
+
+// })
