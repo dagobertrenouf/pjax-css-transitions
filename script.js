@@ -3,7 +3,7 @@ var navEltsClass = '#pjax-nav a';
 var navElts = $(navEltsClass);
 var curNavEltId = '';
 
-var containerClass = '#pjax-container';
+var containerClass = '.pjax-container';
 var container = $(containerClass);
 
 var cloneClass = 'clone';

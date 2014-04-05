@@ -1,21 +1,77 @@
+#page1{ background: #fff; }
+#page2{ background: #eee; }
+#page3{ background: #ddd; }
+
+html, body{
+
+	height: 100%;
+
+}
+
+#pjax-container-wrapper{
+
+	height: 100%;	
+
+}
+
+.page-wrapper{
+
+	padding-top: 45px;
+	min-height: 100%;
+
+}
+
+.pjax-container{
+
+	height: 100%;
+	overflow: auto;
+
+}
+
+
+
+body{
+	
+	font-size: 16px;
+
+}
+
+h1{
+
+	text-align: center;
+
+}
+
+@media (min-width: 768px){
+
+	article.container{
+
+		width: 750px !important;
+
+	}
+
+}
+
 nav{
 
 	font-size: 2em;
 	width: 100%;
-	background: #eee;
 	margin: 0;
+	position: fixed;
+	z-index: 99;
+	text-align: center;
 
 }
 
 nav .active{
 
-	background: #ccc;
+	color: #333;
 
 }
 
 nav .disabled{
 
-	color: #999;
+	/*color: #999;*/
 	text-decoration: none;
 	cursor: default;
 
@@ -28,11 +84,10 @@ nav .disabled{
 
 }
 
-#pjax-container{
+.pjax-container{
 
 	width: 100%;
-	background: white;
-	padding: 20px;
+	display: block;
 
 }
 
@@ -42,36 +97,53 @@ nav .disabled{
 
 }
 
-#pjax-container-sliding-doors #pjax-container{
+#pjax-container-sliding-doors .pjax-container{
 	
 	position: absolute;
-	height: 100%;
 
 }
 
-#pjax-container.disappear{
+.pjax-container.disappear{
 
 	z-index: 1;
-	left: 0;
-	-webkit-animation: slideOutX 0.66s ease-in-out; /* Safari and Chrome */
-	   -moz-animation: slideOutX 0.66s ease-in-out; /* Firefox */
-	    -ms-animation: slideOutX 0.66s ease-in-out; /* Internet Explorer */
-	 	 -o-animation: slideOutX 0.66s ease-in-out; /* Opera */
-	    	animation: slideOutX 0.66s ease-in-out;
+	-webkit-animation: slideOutX 1s ease-in-out; /* Safari and Chrome */
+	   -moz-animation: slideOutX 1s ease-in-out; /* Firefox */
+	    -ms-animation: slideOutX 1s ease-in-out; /* Internet Explorer */
+	 	 -o-animation: slideOutX 1s ease-in-out; /* Opera */
+	    	animation: slideOutX 1s ease-in-out;
 	    	
 }
 
-#pjax-container.appear{
+	.pjax-container.disappear article{
+
+		-webkit-animation: fadeOut 1s ease-in-out; /* Safari and Chrome */
+		   -moz-animation: fadeOut 1s ease-in-out; /* Firefox */
+		    -ms-animation: fadeOut 1s ease-in-out; /* Internet Explorer */
+		 	 -o-animation: fadeOut 1s ease-in-out; /* Opera */
+		    	animation: fadeOut 1s ease-in-out;
+
+	}
+
+.pjax-container.appear{
 
 	z-index: 2;
-	left: 100%;
-	-webkit-animation: slideInX 0.66s ease-in-out; /* Safari and Chrome */
-	   -moz-animation: slideInX 0.66s ease-in-out; /* Firefox */
-	    -ms-animation: slideInX 0.66s ease-in-out; /* Internet Explorer */
-	 	 -o-animation: slideInX 0.66s ease-in-out; /* Opera */
-	    	animation: slideInX 0.66s ease-in-out;
+	-webkit-animation: slideInX 1s ease-in-out; /* Safari and Chrome */
+	   -moz-animation: slideInX 1s ease-in-out; /* Firefox */
+	    -ms-animation: slideInX 1s ease-in-out; /* Internet Explorer */
+	 	 -o-animation: slideInX 1s ease-in-out; /* Opera */
+	    	animation: slideInX 1s ease-in-out;
 
 }
+
+	.pjax-container.appear article{
+
+		-webkit-animation: fadeIn 1s ease-in-out; /* Safari and Chrome */
+		   -moz-animation: fadeIn 1s ease-in-out; /* Firefox */
+		    -ms-animation: fadeIn 1s ease-in-out; /* Internet Explorer */
+		 	 -o-animation: fadeIn 1s ease-in-out; /* Opera */
+		    	animation: fadeIn 1s ease-in-out;
+
+	}
 
 /* 
 
@@ -81,32 +153,32 @@ slide out
 
 */
 @keyframes slideOutX {
-    0%	{ left: 0;}
-    100%{ left: -33%; opacity: 0; }
+    0%	{ left: 0; }
+    100%{ left: -20%; }
 }
 
 /* Firefox */
 @-moz-keyframes slideOutX {
-    0%	{ left: 0;}
-    100%{ left: -33%; opacity: 0; }
+    0%	{ left: 0; }
+    100%{ left: -20%; }
 }
 
 /* Safari and Chrome */
 @-webkit-keyframes slideOutX {
-    0%	{ left: 0;}
-    100%{ left: -33%; opacity: 0; }
+    0%	{ left: 0; }
+    100%{ left: -20%; }
 }
 
 /* Internet Explorer */
 @-ms-keyframes slideOutX {
-    0%	{ left: 0;}
-    100%{ left: -33%; opacity: 0; }
+    0%	{ left: 0; }
+    100%{ left: -20%; }
 }​
 
 /* Opera */
 @-o-keyframes slideOutX {
-    0%	{ left: 0; }
-    100%{ left: -33%; opacity: 0; }
+    0%	{ left: 0;  }
+    100%{ left: -20%; }
 }​
 
 /* 
@@ -144,4 +216,78 @@ slide in
 @-o-keyframes slideInX {
     0%	{ left: 100%; }
     100%{ left: 0%; }
+}​
+
+/* 
+
+******
+fade out
+******
+
+*/
+@keyframes fadeOut {
+    0%	{ opacity: 1; }
+    100%{ opacity: 0; }
+}
+
+/* Firefox */
+@-moz-keyframes fadeOut {
+    0%	{ opacity: 1; }
+    100%{ opacity: 0; }
+}
+
+/* Safari and Chrome */
+@-webkit-keyframes fadeOut {
+    0%	{ opacity: 1; }
+    100%{ opacity: 0; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadeOut {
+    0%	{ opacity: 1; }
+    100%{ opacity: 0; }
+}​
+
+/* Opera */
+@-o-keyframes fadeOut {
+    0%	{ opacity: 1; }
+    100%{ opacity: 0; }
+}​
+
+
+
+/* 
+
+******
+fade in
+******
+
+*/
+@keyframes fadeIn {
+    0%	{ opacity: 0; }
+    100%{ opacity: 1; }
+}
+
+/* Firefox */
+@-moz-keyframes fadeIn {
+    0%	{ opacity: 0; }
+    100%{ opacity: 1; }
+}
+
+/* Safari and Chrome */
+@-webkit-keyframes fadeIn {
+    0%	{ opacity: 0; }
+    100%{ opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadeIn {
+    0%	{ opacity: 0; }
+    100%{ opacity: 1; }
+}​
+
+/* Opera */
+@-o-keyframes fadeIn {
+    0%	{ opacity: 0; }
+    100%{ opacity: 1; }
 }​
