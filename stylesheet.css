@@ -1,6 +1,9 @@
 nav{
 
 	font-size: 2em;
+	width: 100%;
+	background: #eee;
+	margin: 0;
 
 }
 
@@ -20,74 +23,55 @@ nav .disabled{
 
 #pjax-container-wrapper{
 
-	position: relative;
+	overflow: hidden;
+	width: 100%;
 
 }
 
 #pjax-container{
 
 	width: 100%;
-	z-index: 1;
-	opacity: 1;
 	background: white;
+	padding: 20px;
 
 }
 
-#pjax-container.clone{
+#pjax-container-sliding-doors{
+	
+	width: 200%;
 
+}
+
+#pjax-container-sliding-doors #pjax-container{
+	
 	position: absolute;
-	top: 0;
-	z-index: 2;
+	height: 100%;
 
 }
 
 #pjax-container.disappear{
 
-	-webkit-animation: slideOutX 2s; /* Safari and Chrome */
-	   -moz-animation: slideOutX 2s; /* Firefox */
-	    -ms-animation: slideOutX 2s; /* Internet Explorer */
-	 	 -o-animation: slideOutX 2s; /* Opera */
-	    	animation: slideOutX 2s;
+	z-index: 1;
+	left: 0;
+	-webkit-animation: slideOutX 0.66s ease-in-out; /* Safari and Chrome */
+	   -moz-animation: slideOutX 0.66s ease-in-out; /* Firefox */
+	    -ms-animation: slideOutX 0.66s ease-in-out; /* Internet Explorer */
+	 	 -o-animation: slideOutX 0.66s ease-in-out; /* Opera */
+	    	animation: slideOutX 0.66s ease-in-out;
 	    	
 }
 
+#pjax-container.appear{
 
-/* 
+	z-index: 2;
+	left: 100%;
+	-webkit-animation: slideInX 0.66s ease-in-out; /* Safari and Chrome */
+	   -moz-animation: slideInX 0.66s ease-in-out; /* Firefox */
+	    -ms-animation: slideInX 0.66s ease-in-out; /* Internet Explorer */
+	 	 -o-animation: slideInX 0.66s ease-in-out; /* Opera */
+	    	animation: slideInX 0.66s ease-in-out;
 
-******
-fade out
-******
-
-*/
-@keyframes fadeOut {
-    from { opacity: 1; }
-    to   { opacity: 0; }
 }
-
-/* Firefox */
-@-moz-keyframes fadeOut {
-    from { opacity: 1; }
-    to   { opacity: 0; }
-}
-
-/* Safari and Chrome */
-@-webkit-keyframes fadeOut {
-    from { opacity: 1; }
-    to   { opacity: 0; }
-}
-
-/* Internet Explorer */
-@-ms-keyframes fadeOut {
-    from { opacity: 1; }
-    to   { opacity: 0; }
-}​
-
-/* Opera */
-@-o-keyframes fadeOut {
-    from { opacity: 1; }
-    to   { opacity: 0; }
-}​
-
 
 /* 
 
@@ -97,30 +81,67 @@ slide out
 
 */
 @keyframes slideOutX {
-    from { margin-left: 0; opacity: 1; }
-    to   { margin-left: -100%; opacity: 0; }
+    0%	{ left: 0;}
+    100%{ left: -33%; opacity: 0; }
 }
 
 /* Firefox */
 @-moz-keyframes slideOutX {
-    from { margin-left: 0; opacity: 1; }
-    to   { margin-left: -100%; opacity: 0; }
+    0%	{ left: 0;}
+    100%{ left: -33%; opacity: 0; }
 }
 
 /* Safari and Chrome */
 @-webkit-keyframes slideOutX {
-    from { margin-left: 0; opacity: 1; }
-    to   { margin-left: -100%; opacity: 0; }
+    0%	{ left: 0;}
+    100%{ left: -33%; opacity: 0; }
 }
 
 /* Internet Explorer */
 @-ms-keyframes slideOutX {
-    from { margin-left: 0; opacity: 1; }
-    to   { margin-left: -100%; opacity: 0; }
+    0%	{ left: 0;}
+    100%{ left: -33%; opacity: 0; }
 }​
 
 /* Opera */
 @-o-keyframes slideOutX {
-    from { margin-left: 0; opacity: 1; }
-    to   { margin-left: -100%; opacity: 0; }
+    0%	{ left: 0; }
+    100%{ left: -33%; opacity: 0; }
+}​
+
+/* 
+
+******
+slide in
+******
+
+*/
+
+@keyframes slideInX {
+    0%	{ left: 100%; }
+    100%{ left: 0%; }
+}
+
+/* Firefox */
+@-moz-keyframes slideInX {
+    0%	{ left: 100%; }
+    100%{ left: 0%; }
+}
+
+/* Safari and Chrome */
+@-webkit-keyframes slideInX {
+    0%	{ left: 100%; }
+    100%{ left: 0%; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes slideInX {
+    0%	{ left: 100%; }
+    100%{ left: 0%; }
+}​
+
+/* Opera */
+@-o-keyframes slideInX {
+    0%	{ left: 100%; }
+    100%{ left: 0%; }
 }​

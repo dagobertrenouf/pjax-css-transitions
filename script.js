@@ -7,7 +7,8 @@ var containerClass = '#pjax-container';
 var container = $(containerClass);
 
 var cloneClass = 'clone';
-var animationClass = 'disappear';
+var animLeaveClass = 'disappear';
+var animEnterClass = 'appear';
 
 // initiating pjax
 $(document).pjax(navEltsClass, container, {
@@ -25,7 +26,9 @@ $(document).on('pjax:start', function(event) {
 
 	disableNav();
 
-	container.clone().insertAfter(container).addClass(cloneClass); // duplicates content and put it right above container for disappearance effect (through position absolute and z-index)
+	container.wrap('<div id="pjax-container-sliding-doors"/>');
+
+	container.clone().insertBefore(container).addClass(cloneClass); // duplicates content and put it right above container for disappearance effect (through position absolute and z-index)
 
 });
 
@@ -35,16 +38,22 @@ $(document).on('pjax:success', function(event) {
 
 	console.log('animation starts');
 
-	$('.' + cloneClass).addClass(animationClass);
+	$('.' + cloneClass).addClass(animLeaveClass);
+
+	$(containerClass+':not(.'+cloneClass+')').addClass(animEnterClass);
 
 	// once animation is complete, remove the clone element
-	$('.' + cloneClass).bind('animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd', function(){
+	$(containerClass+':not(.'+cloneClass+')').bind('animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd', function(){
 
 		console.log('animation ends');
 
 		$('.' + cloneClass).remove();
 
+		$(containerClass+':not(.'+cloneClass+')').removeClass(animEnterClass);
+
 		reactivateNav();
+
+		container.unwrap();
 
 	});
 
