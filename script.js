@@ -7,7 +7,7 @@ var containerClass = '#pjax-container';
 var container = $(containerClass);
 
 var cloneClass = 'clone';
-var animationClass = 'fade';
+var animationClass = 'disappear';
 
 // initiating pjax
 $(document).pjax(navEltsClass, container, {
@@ -76,7 +76,7 @@ function reactivateNav(){
 			.removeClass('disabled')
 			.attr('href', $(this).attr('data-url'))
 			.removeAttr('data-url');
-			
+
 		navActive = true;
 
 	});

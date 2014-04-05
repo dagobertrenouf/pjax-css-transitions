@@ -26,6 +26,7 @@ nav .disabled{
 
 #pjax-container{
 
+	width: 100%;
 	z-index: 1;
 	opacity: 1;
 	background: white;
@@ -40,41 +41,86 @@ nav .disabled{
 
 }
 
-#pjax-container.fade{
+#pjax-container.disappear{
 
-	-webkit-animation: fadein 2s; /* Safari and Chrome */
-	   -moz-animation: fadein 2s; /* Firefox */
-	    -ms-animation: fadein 2s; /* Internet Explorer */
-	 	 -o-animation: fadein 2s; /* Opera */
-	    	animation: fadein 2s;
+	-webkit-animation: slideOutX 2s; /* Safari and Chrome */
+	   -moz-animation: slideOutX 2s; /* Firefox */
+	    -ms-animation: slideOutX 2s; /* Internet Explorer */
+	 	 -o-animation: slideOutX 2s; /* Opera */
+	    	animation: slideOutX 2s;
 	    	
 }
 
-@keyframes fadein {
+
+/* 
+
+******
+fade out
+******
+
+*/
+@keyframes fadeOut {
     from { opacity: 1; }
     to   { opacity: 0; }
 }
 
 /* Firefox */
-@-moz-keyframes fadein {
+@-moz-keyframes fadeOut {
     from { opacity: 1; }
     to   { opacity: 0; }
 }
 
 /* Safari and Chrome */
-@-webkit-keyframes fadein {
+@-webkit-keyframes fadeOut {
     from { opacity: 1; }
     to   { opacity: 0; }
 }
 
 /* Internet Explorer */
-@-ms-keyframes fadein {
+@-ms-keyframes fadeOut {
     from { opacity: 1; }
     to   { opacity: 0; }
 }​
 
 /* Opera */
-@-o-keyframes fadein {
+@-o-keyframes fadeOut {
     from { opacity: 1; }
     to   { opacity: 0; }
+}​
+
+
+/* 
+
+******
+slide out
+******
+
+*/
+@keyframes slideOutX {
+    from { margin-left: 0; opacity: 1; }
+    to   { margin-left: -100%; opacity: 0; }
+}
+
+/* Firefox */
+@-moz-keyframes slideOutX {
+    from { margin-left: 0; opacity: 1; }
+    to   { margin-left: -100%; opacity: 0; }
+}
+
+/* Safari and Chrome */
+@-webkit-keyframes slideOutX {
+    from { margin-left: 0; opacity: 1; }
+    to   { margin-left: -100%; opacity: 0; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes slideOutX {
+    from { margin-left: 0; opacity: 1; }
+    to   { margin-left: -100%; opacity: 0; }
+}​
+
+/* Opera */
+@-o-keyframes slideOutX {
+    from { margin-left: 0; opacity: 1; }
+    to   { margin-left: -100%; opacity: 0; }
 }​
