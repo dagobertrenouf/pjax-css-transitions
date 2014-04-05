@@ -7,7 +7,7 @@ var containerClass = '#pjax-container';
 var container = $(containerClass);
 
 var cloneClass = 'clone';
-var transitionClass = 'fade';
+var animationClass = 'fade';
 
 // initiating pjax
 $(document).pjax(navEltsClass, container, {
@@ -33,18 +33,14 @@ $(document).on('pjax:success', function(event) {
 
 	console.log('pjax success');
 
-	setTimeout(function(){ // add transition class that starts visual transition
-		
-		console.log('transition starts');
-		
-		$('.' + cloneClass).addClass(transitionClass);
+	console.log('animation starts');
 
-	}, 50); // adding 50ms delay to ensure proper firing of css transition
+	$('.' + cloneClass).addClass(animationClass);
 
-	// once transition is complete, remove the clone element
-	$('.' + cloneClass).bind('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd', function(){
+	// once animation is complete, remove the clone element
+	$('.' + cloneClass).bind('animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd', function(){
 
-		console.log('transition ends');
+		console.log('animation ends');
 
 		$('.' + cloneClass).remove();
 
@@ -61,8 +57,11 @@ function disableNav(){
 	// should disable pjax on these altogether, maybe rename the class?
 	navElts.each(function(){
 
-		$(this).attr('data-url', $(this).attr('href'));
-		$(this).removeAttr('href');
+		$(this)
+			.addClass('disabled')
+			.attr('data-url', $(this).attr('href'))
+			.removeAttr('href');
+
 		navActive = false;
 
 	})
@@ -73,8 +72,11 @@ function reactivateNav(){
 
 	navElts.each(function(){
 
-		$(this).attr('href', $(this).attr('data-url'));
-		$(this).removeAttr('data-url');
+		$(this)
+			.removeClass('disabled')
+			.attr('href', $(this).attr('data-url'))
+			.removeAttr('data-url');
+			
 		navActive = true;
 
 	});

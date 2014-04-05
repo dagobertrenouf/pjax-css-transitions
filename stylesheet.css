@@ -10,6 +10,14 @@ nav .active{
 
 }
 
+nav .disabled{
+
+	color: #999;
+	text-decoration: none;
+	cursor: default;
+
+}
+
 #pjax-container-wrapper{
 
 	position: relative;
@@ -18,27 +26,55 @@ nav .active{
 
 #pjax-container{
 
-	position: absolute;
 	z-index: 1;
 	opacity: 1;
 	background: white;
-
-	-webkit-transition: all 2s ease-in-out;
-	-moz-transition: all 2s ease-in-out;
-	-ms-transition: all 2s ease-in-out;
-	-o-transition: all 2s ease-in-out;
-	transition: all 2s ease-in-out;
 
 }
 
 #pjax-container.clone{
 
+	position: absolute;
+	top: 0;
 	z-index: 2;
 
 }
 
 #pjax-container.fade{
 
-	opacity: 0;
-
+	-webkit-animation: fadein 2s; /* Safari and Chrome */
+	   -moz-animation: fadein 2s; /* Firefox */
+	    -ms-animation: fadein 2s; /* Internet Explorer */
+	 	 -o-animation: fadein 2s; /* Opera */
+	    	animation: fadein 2s;
+	    	
 }
+
+@keyframes fadein {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+/* Firefox */
+@-moz-keyframes fadein {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+/* Safari and Chrome */
+@-webkit-keyframes fadein {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}​
+
+/* Opera */
+@-o-keyframes fadein {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}​
