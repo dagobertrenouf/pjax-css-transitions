@@ -106,42 +106,42 @@ nav .disabled{
 .pjax-container.disappear{
 
 	z-index: 1;
-	-webkit-animation: slideOutX 1s ease-in-out; /* Safari and Chrome */
-	   -moz-animation: slideOutX 1s ease-in-out; /* Firefox */
-	    -ms-animation: slideOutX 1s ease-in-out; /* Internet Explorer */
-	 	 -o-animation: slideOutX 1s ease-in-out; /* Opera */
-	    	animation: slideOutX 1s ease-in-out;
+	-webkit-animation: slideOutX 0.5s ease-in-out; /* Safari and Chrome */
+	   -moz-animation: slideOutX 0.5s ease-in-out; /* Firefox */
+	    -ms-animation: slideOutX 0.5s ease-in-out; /* Internet Explorer */
+	 	 -o-animation: slideOutX 0.5s ease-in-out; /* Opera */
+	    	animation: slideOutX 0.5s ease-in-out;
 	    	
 }
 
 	.pjax-container.disappear article{
 
-		-webkit-animation: fadeOut 1s ease-in-out; /* Safari and Chrome */
-		   -moz-animation: fadeOut 1s ease-in-out; /* Firefox */
-		    -ms-animation: fadeOut 1s ease-in-out; /* Internet Explorer */
-		 	 -o-animation: fadeOut 1s ease-in-out; /* Opera */
-		    	animation: fadeOut 1s ease-in-out;
+		-webkit-animation: fadeOut 0.5s ease-in-out; /* Safari and Chrome */
+		   -moz-animation: fadeOut 0.5s ease-in-out; /* Firefox */
+		    -ms-animation: fadeOut 0.5s ease-in-out; /* Internet Explorer */
+		 	 -o-animation: fadeOut 0.5s ease-in-out; /* Opera */
+		    	animation: fadeOut 0.5s ease-in-out;
 
 	}
 
 .pjax-container.appear{
 
 	z-index: 2;
-	-webkit-animation: slideInX 1s ease-in-out; /* Safari and Chrome */
-	   -moz-animation: slideInX 1s ease-in-out; /* Firefox */
-	    -ms-animation: slideInX 1s ease-in-out; /* Internet Explorer */
-	 	 -o-animation: slideInX 1s ease-in-out; /* Opera */
-	    	animation: slideInX 1s ease-in-out;
+	-webkit-animation: slideInX 0.5s ease-in-out; /* Safari and Chrome */
+	   -moz-animation: slideInX 0.5s ease-in-out; /* Firefox */
+	    -ms-animation: slideInX 0.5s ease-in-out; /* Internet Explorer */
+	 	 -o-animation: slideInX 0.5s ease-in-out; /* Opera */
+	    	animation: slideInX 0.5s ease-in-out;
 
 }
 
 	.pjax-container.appear article{
 
-		-webkit-animation: fadeIn 1s ease-in-out; /* Safari and Chrome */
-		   -moz-animation: fadeIn 1s ease-in-out; /* Firefox */
-		    -ms-animation: fadeIn 1s ease-in-out; /* Internet Explorer */
-		 	 -o-animation: fadeIn 1s ease-in-out; /* Opera */
-		    	animation: fadeIn 1s ease-in-out;
+		-webkit-animation: fadeIn 0.5s ease-in-out; /* Safari and Chrome */
+		   -moz-animation: fadeIn 0.5s ease-in-out; /* Firefox */
+		    -ms-animation: fadeIn 0.5s ease-in-out; /* Internet Explorer */
+		 	 -o-animation: fadeIn 0.5s ease-in-out; /* Opera */
+		    	animation: fadeIn 0.5s ease-in-out;
 
 	}
 
